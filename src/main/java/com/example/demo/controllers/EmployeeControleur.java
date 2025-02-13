@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -26,6 +27,11 @@ public class EmployeeControleur {
     public String findAllEmployee(Model model) {
         model.addAttribute("employees", this.employeeDAO.findAll());
         return "view_employees";
+    }
+
+    @PostMapping("/addEmployee")
+    public String addEmployee(Model model) {
+
     }
 
     @RequestMapping("/")

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+</head>
+<body>
+    <h1>Liste des employées</h1>
+    <ul>
+        <li th:each="employee : ${employees}"
+            th:text="${employee.name}"
+            th:attr="style='background:' + ${employee.fonction.getCodeCouleur()}"></li>
+    </ul>
+</body>
+</html>

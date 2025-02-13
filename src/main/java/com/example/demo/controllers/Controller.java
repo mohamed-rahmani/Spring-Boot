@@ -1,13 +1,14 @@
 package com.example.demo.controllers;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@org.springframework.stereotype.Controller
 public class Controller {
 
     @RequestMapping("/")
-    public String getTemplate1() {
+    public String getTemplate1(Model model) {
+        model.addAttribute("name", "Capteur Température");
         return "template1";
     }
 }

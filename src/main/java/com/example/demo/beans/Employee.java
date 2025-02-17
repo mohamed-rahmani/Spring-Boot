@@ -7,7 +7,7 @@ import lombok.Data;
 public class Employee {
 
     private String name;
-    private String addess;
+    private String address;
     private String email;
     private String phone;
     private Fonction fonction;
@@ -16,7 +16,11 @@ public class Employee {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.addess = address;
+        this.address = address;
         this.fonction = fonction;
+    }
+
+    public Employee() {
+
     }
 }

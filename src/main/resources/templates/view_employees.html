@@ -9,10 +9,11 @@
     <ul>
         <li th:each="employee : ${employees}"
             th:text="${employee.name}"
-            th:attr="style='background:' + ${employee.fonction.getCodeCouleur()}"></li>
+            th:attr="style='background:' + ${employee.fonction.getCodeCouleur()}"
+            ></li>
     </ul>
     <h1>Ajouter un employee</h1>
-    <form method="post" th:action="@{/addemployee}" th:object="${employee}">
+    <form method="post" th:object="${employee}" th:action="@{/addEmployee}">
         <label>Nom</label>
         <input type="text" th:field="*{name}"/>
         <label>Email</label>
@@ -21,10 +22,12 @@
         <input type="text" th:field="*{phone}"/>
         <label>Adresse</label>
         <input type="text" th:field="*{address}"/>
-        <select name="color">
-            <option th:each="colorOpt : ${T(com.example.demo.Color).values()}"
-                    th:value="${colorOpt}" th:text="${colorOpt}"></option>
+        <select name="color" th:field="*{fonction}">
+            <option th:each="colorOpt : ${T(com.example.demo.Fonction).values()}"
+                    th:value="${colorOpt}"
+                    th:text="${colorOpt}"></option>
         </select>
+        <input type="submit" value="Envoyer"/>
     </form>
 </body>
 </html>

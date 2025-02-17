@@ -39,6 +39,6 @@ public class EmployeeDAOImpl implements IEmployeeDAO {
 
     @Override
     public void add(Employee employee) {
-
+        employees.add(employee);
     }
 }

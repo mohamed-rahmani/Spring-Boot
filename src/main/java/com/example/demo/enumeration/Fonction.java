@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.enumeration;
 
 public enum Fonction {
     CHEF_PROJET("blue"),

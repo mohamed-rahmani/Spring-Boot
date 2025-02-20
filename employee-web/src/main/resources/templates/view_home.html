@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/picnic.css}">
+</head>
+<body style="margin: 5rem;">
+    <h1>Liste des employées</h1>
+    <ul>
+        <div th:each="employee : ${employees}" style="display: flex;gap: 2rem;">
+            <a th:href="@{/employee/{id}(id=${employee.id})}" th:text="${employee.id}"></a>
+            <li
+                th:text="${employee.name}"
+                th:attr="style='background:' + ${employee.fonction.getCodeCouleur()}"
+            ></li>
+        </div>
+    </ul>
+    <h1>Ajouter un employee</h1>
+    <form method="post" th:object="${employee}" th:action="@{/employee/addemployee}">
+        <label>Nom</label>
+        <input type="text" th:field="*{name}" required/>
+        <label>Email</label>
+        <input type="text" th:field="*{email}" required/>
+        <label>Téléphone</label>
+        <input type="text" th:field="*{phone}" required/>
+        <label>Adresse</label>
+        <input type="text" th:field="*{address}" required/>
+        <br/>
+        <br/>
+        <select name="color" th:field="*{fonction}" required>
+            <option th:each="colorOpt : ${T(fr.devavance.employee.employeecore.core.enumeration.Fonction).values()}"
+                    th:value="${colorOpt}"
+                    th:text="${colorOpt}"></option>
+        </select>
+        <input type="submit" value="Envoyer"/>
+    </form>
+</body>
+</html>

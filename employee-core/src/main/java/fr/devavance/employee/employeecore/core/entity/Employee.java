@@ -3,6 +3,7 @@ package fr.devavance.employee.employeecore.core.entity;
 import fr.devavance.employee.employeecore.core.enumeration.Fonction;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NonNull;
 
 @Entity
 @Table(name = "employee", schema="public")
@@ -28,5 +29,9 @@ public class Employee {
 
     public Employee() {
 
+    }
+
+    public Long getId() {
+        return id;
     }
 }
